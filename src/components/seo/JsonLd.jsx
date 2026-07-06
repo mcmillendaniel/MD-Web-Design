@@ -16,6 +16,13 @@ export function JsonLd() {
       "@type": "Place",
       name: "Raleigh-Durham, North Carolina",
     },
+    // City/region only, no street address (spec §10).
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Raleigh",
+      addressRegion: "NC",
+      addressCountry: "US",
+    },
   };
 
   return (

@@ -6,7 +6,7 @@ Context for Claude Code sessions in this repo. This repo is **MD Web Design's ow
 
 ## 1. What this site is
 
-- **Owner:** MD Web Design LLC (Garner, NC). Solo operator: McMillen Daniel.
+- **Owner:** MD Web Design LLC (Raleigh, NC). Solo operator: McMillen Daniel.
 - **Purpose:** Establish a professional web presence and convert med-spa / aesthetic-clinic owners in the Raleigh-Durham area into consult bookings.
 - **Current business state (important for content):** No paying clients yet. Do **not** invent testimonials, client logos, or case studies. The only real proof asset is the Luxe Aesthetic demonstration build (see §5).
 - **Primary CTA:** Book a consult / start a conversation → routes to **mdwebdesignllc@gmail.com** (business email; personal mcmillendaniel@gmail.com is not used on this site).
