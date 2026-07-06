@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { routes } from "@/router";
 
-export { routeMeta, absoluteUrl } from "@/lib/routeMeta";
+export { routeMeta, notFoundMeta, absoluteUrl } from "@/lib/routeMeta";
 export { siteConfig } from "@/config/site";
 
 export async function render(path) {

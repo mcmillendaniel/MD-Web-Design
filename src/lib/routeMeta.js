@@ -25,6 +25,15 @@ export const routeMeta = {
   },
 };
 
+// Meta for the 404 page. Not part of routeMeta (it isn't a crawlable route);
+// prerender.js writes it to 404.html and the "*" route renders it in-app.
+export const notFoundMeta = {
+  title: "Page not found | MD Web Design",
+  description: "The page you are looking for could not be found.",
+  path: "/404",
+  noindex: true,
+};
+
 export function absoluteUrl(path) {
   // Join rather than resolve: a leading "/" in `path` would otherwise
   // override any sub-path in siteConfig.url (e.g. a GitHub Pages preview
