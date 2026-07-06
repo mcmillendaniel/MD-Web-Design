@@ -14,7 +14,7 @@ export const routeMeta = {
   "/about": {
     title: "About | MD Web Design",
     description:
-      "MD Web Design is a solo studio based in Garner, North Carolina, serving med spas and aesthetic clinics across the Raleigh and Durham area.",
+      "MD Web Design is a solo studio based in Raleigh, North Carolina, serving med spas and aesthetic clinics across the Raleigh and Durham area.",
     path: "/about",
   },
   "/contact": {

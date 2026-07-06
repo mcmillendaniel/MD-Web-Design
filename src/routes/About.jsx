@@ -11,7 +11,7 @@ export function About() {
           About
         </h1>
         <p className="mt-6 font-sans text-base leading-relaxed text-slate md:text-lg">
-          MD Web Design is a solo studio based in Garner, North Carolina,
+          MD Web Design is a solo studio based in Raleigh, North Carolina,
           serving med spas and aesthetic clinics across the Raleigh and
           Durham area. You get one person who builds your site and stays
           responsible for it, like a contractor you keep on call rather than
