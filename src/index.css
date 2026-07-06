@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/600.css";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Montserrat", sans-serif;
+
+  --color-navy: #1b2a4a;
+  --color-slate: #4a5568;
+  --color-accent: #5b8db8;
+  --color-surface: #f8f9fa;
+
+  --radius-none: 0px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-slate);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: #000000;
+    font-family: var(--font-sans);
+    font-weight: 400;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--color-navy);
+  }
+
+  /* Style direction: no default rounding, no shadows */
+  button,
+  input,
+  textarea,
+  select {
+    border-radius: 0;
+  }
+}
