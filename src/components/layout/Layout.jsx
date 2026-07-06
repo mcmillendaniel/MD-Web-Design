@@ -7,8 +7,11 @@ export function Layout() {
   return (
     <div className="flex min-h-screen flex-col bg-surface">
       <JsonLd />
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <Header />
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         <Outlet />
       </main>
       <Footer />
