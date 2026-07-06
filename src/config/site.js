@@ -8,6 +8,6 @@ export const siteConfig = {
   tagline: "Web Design for Aesthetic Clinics",
   url: SITE_URL,
   contactEmail: "mdwebdesignllc@gmail.com",
-  sampleBuildUrl: "https://luxe-aesthetic-raleigh.figma.site",
+  sampleBuildUrl: "https://luxe-aesthetic.vercel.app/",
   locale: "en_US",
 };
