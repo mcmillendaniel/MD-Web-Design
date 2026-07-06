@@ -25,10 +25,11 @@ function setLinkTag(rel, href) {
 // Keeps document head in sync on client-side route changes. The initial
 // HTML crawlers see is written directly by scripts/prerender.js from the
 // same routeMeta source, so this effect is a no-op for that first paint.
-export function Seo({ title, description, path }) {
+export function Seo({ title, description, path, noindex = false }) {
   useEffect(() => {
     document.title = title;
     setMetaTag("name", "description", description);
+    setMetaTag("name", "robots", noindex ? "noindex" : "index, follow");
 
     const url = absoluteUrl(path);
     setLinkTag("canonical", url);
@@ -38,7 +39,7 @@ export function Seo({ title, description, path }) {
     setMetaTag("property", "og:url", url);
     setMetaTag("property", "og:type", "website");
     setMetaTag("property", "og:site_name", siteConfig.name);
-  }, [title, description, path]);
+  }, [title, description, path, noindex]);
 
   return null;
 }

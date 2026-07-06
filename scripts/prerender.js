@@ -21,7 +21,10 @@ function injectHead(template, meta, appHtml, absoluteUrl, siteConfig) {
 
   const headTags = [
     `<meta name="description" content="${escapeHtml(meta.description)}" />`,
-    `<link rel="canonical" href="${url}" />`,
+    // A 404 should never be indexed or claim a canonical URL.
+    meta.noindex
+      ? `<meta name="robots" content="noindex" />`
+      : `<link rel="canonical" href="${url}" />`,
     `<meta property="og:title" content="${escapeHtml(meta.title)}" />`,
     `<meta property="og:description" content="${escapeHtml(meta.description)}" />`,
     `<meta property="og:url" content="${url}" />`,
@@ -54,9 +57,8 @@ async function main() {
   await buildServerBundle();
 
   const entryPath = path.join(ssrOutDir, "entry-server.js");
-  const { render, routeMeta, absoluteUrl, siteConfig } = await import(
-    `${new URL(`file://${entryPath}`)}?t=${Date.now()}`
-  );
+  const { render, routeMeta, notFoundMeta, absoluteUrl, siteConfig } =
+    await import(`${new URL(`file://${entryPath}`)}?t=${Date.now()}`);
 
   const template = await readFile(path.join(distDir, "index.html"), "utf-8");
 
@@ -73,6 +75,20 @@ async function main() {
     await writeFile(outPath, finalHtml, "utf-8");
     console.log(`Prerendered ${meta.path} -> ${path.relative(root, outPath)}`);
   }
+
+  // 404: render an unmatched path (hits the "*" route) and write it to
+  // 404.html. Vercel and GitHub Pages both serve this file with a real 404
+  // status for unknown paths, so junk paths aren't indexed (spec §7.4).
+  const notFoundHtml = await render("/__not_found__");
+  const finalNotFound = injectHead(
+    template,
+    notFoundMeta,
+    notFoundHtml,
+    absoluteUrl,
+    siteConfig
+  );
+  await writeFile(path.join(distDir, "404.html"), finalNotFound, "utf-8");
+  console.log("Prerendered 404 -> dist/404.html");
 
   await rm(ssrOutDir, { recursive: true, force: true });
 }

@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/Reveal";
+
 const steps = [
   {
     title: "Consult.",
@@ -19,24 +21,29 @@ const steps = [
 
 export function Process() {
   return (
-    <section className="border-t border-slate/15 bg-white/40">
-      <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-        <h2 className="text-center font-display text-2xl font-medium text-navy md:text-3xl">
-          Process.
-        </h2>
-        <ol className="mt-12 grid gap-10 md:grid-cols-4">
+    <section className="border-t border-slate/15">
+      <div className="site-container py-12 md:py-20">
+        <Reveal>
+          <h2 className="text-center text-[26px] font-medium text-navy md:text-[32px]">
+            Process.
+          </h2>
+        </Reveal>
+        <ol className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
-            <li key={step.title}>
-              <span className="font-display text-sm text-accent">
+            <Reveal as="li" key={step.title} delay={i * 80}>
+              {/* Numbers in Playfair Navy are the only visual device here
+                  (no icon set), per spec §7.1. */}
+              <span className="font-display text-4xl font-medium leading-none text-navy">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-2 font-display text-lg font-medium text-navy">
+              <div className="mt-4 h-px w-10 bg-accent" />
+              <h3 className="mt-4 text-[20px] font-medium text-navy">
                 {step.title}
               </h3>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-slate">
+              <p className="mt-2 text-[17px] leading-relaxed text-slate">
                 {step.body}
               </p>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </div>
