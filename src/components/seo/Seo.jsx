@@ -34,11 +34,20 @@ export function Seo({ title, description, path, noindex = false }) {
     const url = absoluteUrl(path);
     setLinkTag("canonical", url);
 
+    // TODO(og-image): swap og-default.png for a McMillen-supplied image.
+    const image = absoluteUrl("og-default.png");
+
     setMetaTag("property", "og:title", title);
     setMetaTag("property", "og:description", description);
     setMetaTag("property", "og:url", url);
     setMetaTag("property", "og:type", "website");
     setMetaTag("property", "og:site_name", siteConfig.name);
+    setMetaTag("property", "og:image", image);
+
+    setMetaTag("name", "twitter:card", "summary_large_image");
+    setMetaTag("name", "twitter:title", title);
+    setMetaTag("name", "twitter:description", description);
+    setMetaTag("name", "twitter:image", image);
   }, [title, description, path, noindex]);
 
   return null;
