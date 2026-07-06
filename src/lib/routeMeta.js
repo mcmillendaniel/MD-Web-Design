@@ -26,5 +26,9 @@ export const routeMeta = {
 };
 
 export function absoluteUrl(path) {
-  return new URL(path, siteConfig.url).toString();
+  // Join rather than resolve: a leading "/" in `path` would otherwise
+  // override any sub-path in siteConfig.url (e.g. a GitHub Pages preview
+  // served from /repo-name/), dropping it from the result.
+  const base = siteConfig.url.endsWith("/") ? siteConfig.url : `${siteConfig.url}/`;
+  return new URL(path.replace(/^\//, ""), base).toString();
 }
