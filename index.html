@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MD Web Design</title>
+    <script>
+      // Enable scroll-reveal only when JS is on and motion is allowed. The
+      // prerendered HTML has no this class, so crawlers and reduced-motion
+      // users always see content immediately (no hidden-by-default content).
+      try {
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.add("js-reveal");
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
