@@ -7,11 +7,7 @@ export function CtaBand() {
         <h2 className="font-display text-2xl font-medium text-surface md:text-3xl">
           Ready to talk about your practice?
         </h2>
-        <Button
-          asChild
-          variant="outline"
-          className="border-surface text-surface hover:bg-surface hover:text-navy"
-        >
+        <Button asChild variant="inverted">
           <a href="mailto:mdwebdesignllc@gmail.com">Book a consult</a>
         </Button>
       </div>
