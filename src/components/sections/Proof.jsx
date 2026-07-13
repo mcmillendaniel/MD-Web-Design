@@ -34,6 +34,7 @@ export function Proof() {
             width={1200}
             height={750}
             sizes="(min-width: 1024px) 896px, 100vw"
+            className="border border-slate/15"
           />
         </Reveal>
       </div>
