@@ -28,6 +28,7 @@ export function Proof() {
 
         <Reveal className="mx-auto mt-12 max-w-4xl" delay={80}>
           <ImageSlot
+            publicId="Screen_Shot_2026-07-13_at_2.46.54_PM_axcnwf"
             label="Sample build preview"
             alt="Screenshot of the Luxe Aesthetic sample build"
             width={1200}
