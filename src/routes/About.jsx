@@ -16,10 +16,13 @@ export function About() {
         <div className="mx-auto mt-12 grid max-w-4xl items-center gap-10 md:grid-cols-[260px_1fr]">
           <Reveal className="mx-auto w-full max-w-[260px]">
             <ImageSlot
+              publicId="IMG_8556_wmcriq"
               label="Headshot"
-              alt="McMillen Daniel, MD Web Design"
+              alt="McMillen Daniel, founder of MD Web Design"
               width={520}
               height={640}
+              sizes="260px"
+              eager
             />
           </Reveal>
 
